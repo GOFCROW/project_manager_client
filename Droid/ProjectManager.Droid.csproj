@@ -139,10 +139,10 @@
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\layout\toolbar_principal.axml" />
-    <AndroidResource Include="Resources\layout\fragment_users.axml" />
-    <AndroidResource Include="Resources\layout\fragment_projects.axml" />
     <AndroidResource Include="Resources\layout\activity_main.axml" />
+    <AndroidResource Include="Resources\layout\fragment_projects.axml" />
+    <AndroidResource Include="Resources\layout\fragment_users.axml" />
+    <AndroidResource Include="Resources\layout\toolbar_principal.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
