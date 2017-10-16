@@ -11,8 +11,7 @@
 namespace ProjectManager {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Maestria\\Modulo 1\\Proyecto\\project_manager_client\\ProjectManager\\Views\\AboutPa" +
-        "ge.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/alcidesleanos/Projects/ProjectManager/ProjectManager/Views/AboutPage.xaml")]
     public partial class AboutPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

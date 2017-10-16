@@ -11,8 +11,8 @@
 namespace ProjectManager {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Maestria\\Modulo 1\\Proyecto\\project_manager_client\\ProjectManager\\Views\\NewItem" +
-        "Page.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/alcidesleanos/Projects/ProjectManager/ProjectManager/Views/NewItemPage.xam" +
+        "l")]
     public partial class NewItemPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

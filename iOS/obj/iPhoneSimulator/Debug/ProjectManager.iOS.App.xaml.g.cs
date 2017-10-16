@@ -11,7 +11,7 @@
 namespace ProjectManager {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Maestria\\Modulo 1\\Proyecto\\project_manager_client\\ProjectManager\\App.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/alcidesleanos/Projects/ProjectManager/ProjectManager/App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
