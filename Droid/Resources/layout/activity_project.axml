@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEFF1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ECEFF1"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="#1565C0"
+            android:visibility="visible"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextColor="#FFFFFF" />
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_margin="8dp"
+            android:background="@drawable/edit_border"
+            android:ems="20"
+            android:hint="Nombre del Proyecto"
+            android:inputType="textAutoCorrect"
+            android:maxLength="30"
+            android:padding="8dp"
+            android:textColor="#808080"
+            android:textSize="20dp" />
+        <EditText
+            android:id="@+id/et_lenght"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@+id/et_title"
+            android:layout_margin="8dp"
+            android:background="@drawable/edit_border"
+            android:ems="20"
+            android:gravity="left"
+            android:hint="Descripcion Adicional"
+            android:inputType="textAutoCorrect"
+            android:maxLength="100"
+            android:maxLines="2"
+            android:padding="8dp"
+            android:textColor="#808080"
+            android:textSize="20dp" />
+        <LinearLayout
+            android:id="@+id/ly_estimated_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_lenght"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Spinner
+                android:id="@+id/sp_number"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/et_lenght"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:ems="20"
+                android:padding="8dp"
+                android:textColor="#808080"
+                android:textSize="20dp" />
+            <Spinner
+                android:id="@+id/sp_type"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/et_lenght"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:ems="20"
+                android:padding="8dp"
+                android:textColor="#808080"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ly_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_estimated_hours"
+            android:layout_margin="8dp"
+            android:background="@drawable/edit_border"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:layout_weight="0.9"
+                android:padding="8dp"
+                android:text="Integrantes"
+                android:textAlignment="center"
+                android:textColor="#808080"
+                android:textSize="24sp" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:layout_weight="0.1"
+                android:src="@drawable/ic_add_person" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_no_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_add"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/no_team" />
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly_add">
+            <LinearLayout
+                android:id="@+id/ly_workers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollIndicators="top|bottom"
+                android:visibility="visible" />
+        </ScrollView>
+        <Button
+            android:id="@+id/btn_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/iv_no_team"
+            android:layout_margin="16dp"
+            android:background="@drawable/button_border"
+            android:elevation="10dp"
+            android:onClick="OnClickCreateProject"
+            android:text="CREAR"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+    </RelativeLayout>
+</ScrollView>

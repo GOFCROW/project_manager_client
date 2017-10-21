@@ -65,12 +65,6 @@
 /Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/optimized/xamarin_logo@2x.png
 /Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/optimized/xamarin_logo@3x.png
 /Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/optimized/
-/Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.csprojResolveAssemblyReference.cache
 /Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.csproj.CoreCompileInputs.cache
-/Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.Views.AboutPage.xaml.g.cs
-/Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.Views.ItemDetailPage.xaml.g.cs
-/Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.Views.ItemsPage.xaml.g.cs
-/Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.Views.NewItemPage.xaml.g.cs
-/Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.App.xaml.g.cs
 /Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.exe
 /Users/alcidesleanos/Projects/ProjectManager/iOS/obj/iPhoneSimulator/Debug/ProjectManager.iOS.pdb

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ECEFF1"
+    android:layout_height="50dp">
+    <ImageView
+        android:id="@+id/iv_worker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_worker" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_worker"
+        android:layout_toLeftOf="@+id/iv_delete"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:maxLines="2"
+        android:paddingLeft="8dp"
+        android:scrollHorizontally="true"
+        android:text="Oso Ferrufino Gonzales"
+        android:textColor="#808080"
+        android:textSize="16dp" />
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_delete" />
+</RelativeLayout>
