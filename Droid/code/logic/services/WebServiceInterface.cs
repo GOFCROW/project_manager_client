@@ -11,5 +11,8 @@ namespace ProjectManager.Droid.code.services
         [Get("/developers")]
         Task<String> GetListDevelopers();
 
+        [Get("/projects")]
+        Task<String> GetListProjects();
+
     }
 }

@@ -1,0 +1,96 @@
+﻿using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Support.Design.Widget;
+using Android.Support.V4.View;
+using Android.Support.V7.App;
+using Android.Views;
+using Android.Widget;
+using ProjectManager.Droid.code.controllers;
+using ProjectManager.Droid.code.logic.business;
+using ProjectManager.Droid.code.logic.listeners;
+
+namespace ProjectManager.Droid.Controllers
+{
+    [Activity(Label = "MenuActivity", MainLauncher = true, Theme = "@style/MyTheme", Icon = "@drawable/icon")]
+    public class MenuActivity : AppCompatActivity, NotifyController
+    {
+        private DevelopersBusiness developersBusiness;
+        private ProjectBusiness projectBusiness;
+        private ProgressDialog progressDialog;
+
+
+        private ViewPager vpPrincipal;
+        private TabLayout tlPrincipal;
+
+        public static readonly string KEY_EXTRA_DEVELOPERS = "KEY_EXTRA_DEVELOPERS";
+        public static readonly string KEY_EXTRA_PROJECTS = "KEY_EXTRA_PROJECTS";
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            base.SetContentView(Resource.Layout.activity_menu);
+            InitComponents();
+            progressDialog.Show();
+            developersBusiness = new DevelopersBusiness(this.BaseContext, this);
+            developersBusiness.GetListDevelopers();
+        }
+
+
+        private void InitComponents()
+        {
+            this.vpPrincipal = FindViewById<ViewPager>(Resource.Id.viewpager);
+            this.tlPrincipal = FindViewById<TabLayout>(Resource.Id.appBarLayout);
+
+            this.tlPrincipal.TabSelected += (object sender, TabLayout.TabSelectedEventArgs e) => { };
+            this.vpPrincipal.AddOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlPrincipal));
+            this.tlPrincipal.SetupWithViewPager(this.vpPrincipal);
+
+            progressDialog = new ProgressDialog(this);
+            progressDialog.SetMessage("Espere un momento mientras cargamos sus proyectos");
+            progressDialog.SetCancelable(false);
+        }
+
+        private void InitViewPager(ViewPager viewPager)
+        {
+            GenericTabAdapter genericTabAdapter = new GenericTabAdapter(SupportFragmentManager, this);
+            genericTabAdapter.AddFragment(DeveloperFragment.newInstance());
+            genericTabAdapter.AddFragment(ProjectFragment.newInstance());
+            viewPager.Adapter = genericTabAdapter;
+            viewPager.OffscreenPageLimit = genericTabAdapter.Count;
+        }
+
+        public void Notify(object obj, string type)
+        {
+            if (type.Equals(DevelopersBusiness.NOTIFY_KEY))
+            {
+                this.Intent.PutExtra(KEY_EXTRA_DEVELOPERS, (Java.IO.ISerializable)obj);
+                projectBusiness.GetListProjects();
+            }
+            else if (type.Equals(ProjectBusiness.NOTIFY_KEY))
+            {
+                this.Intent.PutExtra(KEY_EXTRA_PROJECTS, (Java.IO.ISerializable)obj);
+                loadDataToFragments();
+                progressDialog.Dismiss();
+            }
+            else
+            {
+                progressDialog.Dismiss();
+                Toast.MakeText(this, obj.ToString(), ToastLength.Short).Show();
+            }
+        }
+
+
+        private void loadDataToFragments()
+        {
+
+        }
+
+
+
+
+    }
+}

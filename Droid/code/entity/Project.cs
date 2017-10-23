@@ -1,23 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ProjectManager.Droid.code.entity
 {
+    [Serializable]
     public class Project
     {
-
+        [XmlElement("id")]  
         private int id { get; set; }
-        private String name { get; set; }
-        private String description { get; set; }
+
+        [XmlElement("name")]  
+        private string name { get; set; }
+
+        [XmlElement("description")]  
+        private string description { get; set; }
+
+        [XmlElement("estimated_hours")]  
         private int estimated_hours { get; set; }
+
+        [XmlElement("enabled")]  
         private Boolean enabled { get; set; }
-        private long timestamp_created { get; set; }
-        private long timestamp_modif { get; set; }
+
+        [XmlArray("assignments")]
+        [XmlArrayItem("assignments")]
         private Assignment[] assignment { get; set; }
 
 
-        public Project()
-        {
-        }
     }
 }

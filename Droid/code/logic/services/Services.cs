@@ -8,17 +8,25 @@ namespace ProjectManager.Droid.code.services
 {
     public class Services
     {
-        WebServiceInterface serviceApi = RestService.For<WebServiceInterface>("http://200.87.54.2:8899");
-        Serializer serializer = new Serializer();
-        public Services()
+        
+        WebServiceInterface serviceApi = RestService.For<WebServiceInterface>(new System.Net.Http.HttpClient
         {
-            
-        }
+          BaseAddress = new Uri("http://200.87.54.2:8899"),
+          Timeout = TimeSpan.FromSeconds(60)
+        });
+
 
         public List<Developer> GetListDevelopers()
         {
+            Serializer serializer = new Serializer("developers");
             String xmlDevelopers = serviceApi.GetListDevelopers().Result;
             return serializer.Deserialize<List<Developer>>(xmlDevelopers);
         }
+
+        public List<Project> GetListProjects()
+        {
+            return null;
+        }
+
     }
 }

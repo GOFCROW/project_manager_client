@@ -1,30 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using Android.Content;
-using ProjectManager.Droid.code.entity;
 using ProjectManager.Droid.code.logic.listeners;
 using ProjectManager.Droid.code.logic.tasks;
 
 namespace ProjectManager.Droid.code.logic.business
 {
-    public class DevelopersBusiness : CompleteAsyncTask
+    public class ProjectBusiness : CompleteAsyncTask
     {
         private Context context;
         private NotifyController notifyController;
 
-        public static readonly String NOTIFY_KEY = "ListDevelopers";
+        public static readonly String NOTIFY_KEY = "ListProjects";
 
-        public DevelopersBusiness(Context context, NotifyController notifyController)
+        public ProjectBusiness(Context context, NotifyController notifyController)
         {
             this.context = context;
             this.notifyController = notifyController;
         }
 
-        public void GetListDevelopers()
-        {
-            new ListDevelopersTask(this.context, this).Execute();
-        }
 
+        public void GetListProjects()
+        {
+            new ListProjectsTask(this.context, this).Execute();
+        }
 
         public void OnResponse(object result)
         {

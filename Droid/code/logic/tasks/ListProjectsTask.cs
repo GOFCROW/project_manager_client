@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.Content;
-using Android.OS;
 using Java.Lang;
 using ProjectManager.Droid.code.entity;
 using ProjectManager.Droid.code.logic.listeners;
@@ -9,11 +8,11 @@ using ProjectManager.Droid.code.services;
 
 namespace ProjectManager.Droid.code.logic.tasks
 {
-    public class ListDevelopersTask : AsyncTaskGOF
+    public class ListProjectsTask : AsyncTaskGOF
     {
-        public ListDevelopersTask(Context context, CompleteAsyncTask completeAsyncTask) : base(context,completeAsyncTask)
+        public ListProjectsTask(Context context, CompleteAsyncTask completeAsyncTask) : base(context,completeAsyncTask)
         {
-           
+
         }
 
 
@@ -24,15 +23,15 @@ namespace ProjectManager.Droid.code.logic.tasks
 
         protected override object RunInBackground(params object[] @params)
         {
-            List<Developer> lstProjects = null;
+            List<Project> lstProjects = null;
             try
             {
                 Services services = new Services();
-                lstProjects = services.GetListDevelopers();
+                lstProjects = services.GetListProjects();
             }
-            catch(Throwable throwable)
+            catch (Throwable throwable)
             {
-                lstProjects = null;    
+                lstProjects = null;
             }
             return lstProjects;
         }
@@ -40,16 +39,15 @@ namespace ProjectManager.Droid.code.logic.tasks
 
         protected override void OnPostExecute(object result)
         {
-            if(result != null)
+            if (result != null)
             {
-                base.completeAsyncTask.OnResponse(result); ;   
+                base.completeAsyncTask.OnResponse(result); ;
             }
             else
             {
-                base.completeAsyncTask.OnError("Error, no se pudieron obtener los desarrolladores");
+                base.completeAsyncTask.OnError("Error, no se pudieron obtener los proyectos");
             }
         }
-
 
     }
 }

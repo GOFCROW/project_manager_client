@@ -6,14 +6,18 @@ namespace ProjectManager.Droid.code.utils
 {
     public class Serializer
     {
-        public Serializer()
-        {
+        private XmlRootAttribute xRoot;
 
+        public Serializer(string xmlElementName)
+        {
+            this.xRoot = new XmlRootAttribute();
+            this.xRoot.ElementName = xmlElementName;
+            this.xRoot.IsNullable = true;
         }
 
         public T Deserialize<T>(string input) where T : class
         {
-            System.Xml.Serialization.XmlSerializer ser = new System.Xml.Serialization.XmlSerializer(typeof(T));
+            System.Xml.Serialization.XmlSerializer ser = new System.Xml.Serialization.XmlSerializer(typeof(T),this.xRoot);
 
             using (StringReader sr = new StringReader(input))
             {

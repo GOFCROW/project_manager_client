@@ -149,9 +149,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="code\controllers\MainActivity.cs" />
     <Compile Include="code\controllers\UsersFragment.cs" />
-    <Compile Include="code\controllers\ProjectsFragment.cs" />
     <Compile Include="code\entity\Developer.cs" />
     <Compile Include="code\entity\Assignment.cs" />
     <Compile Include="code\entity\Project.cs" />
@@ -164,6 +162,13 @@
     <Compile Include="code\logic\tasks\AsyncTaskGOF.cs" />
     <Compile Include="code\logic\business\DevelopersBusiness.cs" />
     <Compile Include="code\logic\listeners\NotifyController.cs" />
+    <Compile Include="code\controllers\GenericTabAdapter.cs" />
+    <Compile Include="code\controllers\DeveloperFragment.cs" />
+    <Compile Include="code\controllers\GofBaseAdapter.cs" />
+    <Compile Include="code\logic\business\ProjectBusiness.cs" />
+    <Compile Include="code\logic\tasks\ListProjectsTask.cs" />
+    <Compile Include="code\controllers\ProjectFragment.cs" />
+    <Compile Include="code\controllers\MenuActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
