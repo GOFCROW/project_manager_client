@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 using Android.App;
 using Android.Content;
@@ -10,6 +11,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using ProjectManager.Droid.code.controllers;
+using ProjectManager.Droid.code.entity;
 using ProjectManager.Droid.code.logic.business;
 using ProjectManager.Droid.code.logic.listeners;
 
@@ -35,7 +37,8 @@ namespace ProjectManager.Droid.Controllers
             base.SetContentView(Resource.Layout.activity_menu);
             InitComponents();
             progressDialog.Show();
-            developersBusiness = new DevelopersBusiness(this.BaseContext, this);
+            developersBusiness = new DevelopersBusiness(this, this);
+            projectBusiness = new ProjectBusiness(this, this);
             developersBusiness.GetListDevelopers();
         }
 
@@ -43,7 +46,7 @@ namespace ProjectManager.Droid.Controllers
         private void InitComponents()
         {
             this.vpPrincipal = FindViewById<ViewPager>(Resource.Id.viewpager);
-            this.tlPrincipal = FindViewById<TabLayout>(Resource.Id.appBarLayout);
+            this.tlPrincipal = FindViewById<TabLayout>(Resource.Id.tabLayout);
 
             this.tlPrincipal.TabSelected += (object sender, TabLayout.TabSelectedEventArgs e) => { };
             this.vpPrincipal.AddOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlPrincipal));
@@ -63,18 +66,23 @@ namespace ProjectManager.Droid.Controllers
             viewPager.OffscreenPageLimit = genericTabAdapter.Count;
         }
 
+
+        /*
+        * notif
+        */
         public void Notify(object obj, string type)
         {
             if (type.Equals(DevelopersBusiness.NOTIFY_KEY))
             {
-                this.Intent.PutExtra(KEY_EXTRA_DEVELOPERS, (Java.IO.ISerializable)obj);
+                Java.Util.ArrayList test = new Java.Util.ArrayList((List<Developer>)obj);
+                this.Intent.PutExtra(KEY_EXTRA_DEVELOPERS, new Java.Util.ArrayList((List<Developer>)obj));
                 projectBusiness.GetListProjects();
             }
             else if (type.Equals(ProjectBusiness.NOTIFY_KEY))
             {
-                this.Intent.PutExtra(KEY_EXTRA_PROJECTS, (Java.IO.ISerializable)obj);
-                loadDataToFragments();
+                this.Intent.PutExtra(KEY_EXTRA_PROJECTS, new Java.Util.ArrayList((List<Project>)obj));
                 progressDialog.Dismiss();
+                InitViewPager(this.vpPrincipal);
             }
             else
             {
@@ -84,10 +92,6 @@ namespace ProjectManager.Droid.Controllers
         }
 
 
-        private void loadDataToFragments()
-        {
-
-        }
 
 
 

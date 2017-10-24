@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace ProjectManager.Droid.code.entity
 {
     [Serializable]
-    public class Assignment
+    public class Assignment : Java.Lang.Object, Java.IO.ISerializable
     {
         [XmlElement("fk_dev")]  
         private int fk_dev { get; set; }

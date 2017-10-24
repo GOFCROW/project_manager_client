@@ -1,9 +1,17 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 using Android.App;
+using Android.Content;
 using Android.OS;
+using Android.Runtime;
 using Android.Support.V7.Widget;
+using Android.Util;
 using Android.Views;
+using Android.Widget;
 using ProjectManager.Droid.code.entity;
 using ProjectManager.Droid.Controllers;
 
@@ -12,7 +20,8 @@ namespace ProjectManager.Droid.code.controllers
 
         public class ProjectFragment : Android.Support.V4.App.Fragment
         {
-            private RecyclerView rvDevelopers;
+            private RecyclerView rvProjects;
+            private ImageView ivNoProjects;
             private readonly int NUM_COLUMNS = 1;
             private readonly String TAG = nameof(ProjectFragment);
             private List<Project> listProjects;
@@ -33,30 +42,47 @@ namespace ProjectManager.Droid.code.controllers
 
             public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
             {
-                View view = inflater.Inflate(Resource.Layout.fragment_developer, container, false);
+                View view = inflater.Inflate(Resource.Layout.fragment_project, container, false);
                 InitComponents(view);
-                return base.OnCreateView(inflater, container, savedInstanceState);
+                return view;
             }
 
 
 
             private void InitComponents(View view)
             {
-                this.rvDevelopers = view.FindViewById<RecyclerView>(Resource.Id.project_recycler_view);
-                this.listProjects = (System.Collections.Generic.List<ProjectManager.Droid.code.entity.Project>)
+                this.rvProjects = view.FindViewById<RecyclerView>(Resource.Id.project_recycler_view);
+                this.ivNoProjects = view.FindViewById<ImageView>(Resource.Id.iv_no_projects);
+                Java.Util.ArrayList arrayListProjects = (Java.Util.ArrayList)
                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_PROJECTS);
-                if(this.listProjects != null && this.listProjects.Count != 0)
+                if(arrayListProjects != null && !arrayListProjects.IsEmpty)
                 {
+                    this.ivNoProjects.Visibility = ViewStates.Gone;
+                    this.rvProjects.Visibility = ViewStates.Visible;
+                    this.listProjects = ConvertJavaListToCSharpList(arrayListProjects);
                     InitRecyclerView(this.listProjects);
                 }
             }
+
+
+        private List<Project> ConvertJavaListToCSharpList(Java.Util.ArrayList arrayListProjects)
+        {
+            List<Project> lstProjects = new List<Project>();
+            for (int i = 0; i < arrayListProjects.Size(); i++)
+            {
+                lstProjects.Add((ProjectManager.Droid.code.entity.Project)arrayListProjects.Get(i));
+            }
+            return lstProjects;
+        }
 
 
             private void InitRecyclerView(List<Project> listProjects)
             {
             ProjectRecyclerViewAdapter projectRecyclerViewAdapter =
                 new ProjectRecyclerViewAdapter(Resource.Layout.card_project, listProjects);
-            this.rvDevelopers.SetAdapter(projectRecyclerViewAdapter);
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(Context, NUM_COLUMNS);
+            this.rvProjects.SetLayoutManager(gridLayoutManager);
+            this.rvProjects.SetAdapter(projectRecyclerViewAdapter);
             }
           
             class ProjectRecyclerViewAdapter : RecyclerView.Adapter

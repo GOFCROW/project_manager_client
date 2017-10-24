@@ -25,7 +25,9 @@ namespace ProjectManager.Droid.code.services
 
         public List<Project> GetListProjects()
         {
-            return null;
+            Serializer serializer = new Serializer("projects");
+            String xmlProjects = serviceApi.GetListProjects().Result;
+            return serializer.Deserialize<List<Project>>(xmlProjects);
         }
 
     }

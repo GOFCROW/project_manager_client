@@ -21,6 +21,7 @@ namespace ProjectManager.Droid.code.controllers
     {
 
         private RecyclerView rvDevelopers;
+        private ImageView ivNoDevelopers;
         private readonly int NUM_COLUMNS = 1;
         private readonly String TAG = nameof(DeveloperFragment);
         private List<Developer> listDevelopers;
@@ -43,27 +44,45 @@ namespace ProjectManager.Droid.code.controllers
         {
             View view = inflater.Inflate(Resource.Layout.fragment_developer, container, false);
             InitComponents(view);
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            return view;
         }
 
 
 
         private void InitComponents(View view)
         {
-            this.rvDevelopers = view.FindViewById<RecyclerView>(Resource.Id.project_recycler_view);
-            this.listDevelopers = (System.Collections.Generic.List<ProjectManager.Droid.code.entity.Developer>)
-            ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
-            if (this.listDevelopers != null && this.listDevelopers.Count != 0)
+            this.rvDevelopers = view.FindViewById<RecyclerView>(Resource.Id.developer_recycler_view);
+            this.ivNoDevelopers = view.FindViewById<ImageView>(Resource.Id.iv_no_developers);
+            Java.Util.ArrayList arrayListDevelopers = (Java.Util.ArrayList)
+                ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
+            
+            if (arrayListDevelopers != null && !arrayListDevelopers.IsEmpty)
             {
-                InitRecyclerView(this.listDevelopers);
+                this.ivNoDevelopers.Visibility = ViewStates.Gone;
+                this.rvDevelopers.Visibility = ViewStates.Visible;
+                this.listDevelopers = ConvertJavaListToCSharpList(arrayListDevelopers);
+                InitRecyclerView(this.listDevelopers); 
             }
         }
 
+
+        private List<Developer> ConvertJavaListToCSharpList(Java.Util.ArrayList arrayListDevelopers)
+        {
+            List<Developer> lstDevelopers = new List<Developer>();
+            for (int i = 0; i < arrayListDevelopers.Size(); i++)
+            {
+                lstDevelopers.Add((ProjectManager.Droid.code.entity.Developer)arrayListDevelopers.Get(i));
+            }
+            return lstDevelopers;
+        }
 
         private void InitRecyclerView(List<Developer> listDevelopers)
         {
             DeveloperRecyclerViewAdapter projectRecyclerViewAdapter =
                 new DeveloperRecyclerViewAdapter(Resource.Layout.card_developer, listDevelopers);
+
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(Context, NUM_COLUMNS);
+            this.rvDevelopers.SetLayoutManager(gridLayoutManager);
             this.rvDevelopers.SetAdapter(projectRecyclerViewAdapter);
         }
 

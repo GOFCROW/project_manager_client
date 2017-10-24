@@ -60,7 +60,6 @@ D:/Maestria/Modulo 1/Proyecto/project_manager_client/Droid/obj/Debug/ProjectMana
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Microsoft.Net.Http.Headers.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Microsoft.AspNetCore.WebUtilities.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Refit.xml
-/Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csprojResolveAssemblyReference.cache
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csproj.CoreCompileInputs.cache
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.pdb
