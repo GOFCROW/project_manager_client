@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
@@ -22,6 +23,7 @@ namespace ProjectManager.Droid.code.controllers
         {
             private RecyclerView rvProjects;
             private ImageView ivNoProjects;
+            private FloatingActionButton btn_add_project;
             private readonly int NUM_COLUMNS = 1;
             private readonly String TAG = nameof(ProjectFragment);
             private List<Project> listProjects;
@@ -53,6 +55,10 @@ namespace ProjectManager.Droid.code.controllers
             {
                 this.rvProjects = view.FindViewById<RecyclerView>(Resource.Id.project_recycler_view);
                 this.ivNoProjects = view.FindViewById<ImageView>(Resource.Id.iv_no_projects);
+                this.btn_add_project = view.FindViewById<FloatingActionButton>(Resource.Id.btn_add_project);
+                this.btn_add_project.Click += (sender, e) => {
+                    StartActivity(new Intent(Context,typeof(ProjectActivity)));
+                };
                 Java.Util.ArrayList arrayListProjects = (Java.Util.ArrayList)
                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_PROJECTS);
                 if(arrayListProjects != null && !arrayListProjects.IsEmpty)

@@ -169,6 +169,8 @@
     <Compile Include="code\logic\tasks\ListProjectsTask.cs" />
     <Compile Include="code\controllers\ProjectFragment.cs" />
     <Compile Include="code\controllers\MenuActivity.cs" />
+    <Compile Include="code\controllers\ProjectActivity.cs" />
+    <Compile Include="code\controllers\DeveloperActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

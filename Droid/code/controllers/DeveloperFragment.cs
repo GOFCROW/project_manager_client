@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
@@ -22,6 +23,7 @@ namespace ProjectManager.Droid.code.controllers
 
         private RecyclerView rvDevelopers;
         private ImageView ivNoDevelopers;
+        private FloatingActionButton btn_add_dev;
         private readonly int NUM_COLUMNS = 1;
         private readonly String TAG = nameof(DeveloperFragment);
         private List<Developer> listDevelopers;
@@ -55,6 +57,12 @@ namespace ProjectManager.Droid.code.controllers
             this.ivNoDevelopers = view.FindViewById<ImageView>(Resource.Id.iv_no_developers);
             Java.Util.ArrayList arrayListDevelopers = (Java.Util.ArrayList)
                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
+
+            this.btn_add_dev = view.FindViewById<FloatingActionButton>(Resource.Id.btn_add_dev);
+            this.btn_add_dev.Click += (sender, e) => {
+                StartActivity(new Intent(Context, typeof(DeveloperActivity)));
+            };
+
             
             if (arrayListDevelopers != null && !arrayListDevelopers.IsEmpty)
             {
