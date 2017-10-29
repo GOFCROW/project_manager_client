@@ -60,7 +60,6 @@ D:/Maestria/Modulo 1/Proyecto/project_manager_client/Droid/obj/Debug/ProjectMana
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Microsoft.Net.Http.Headers.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Microsoft.AspNetCore.WebUtilities.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Refit.xml
-/Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csprojResolveAssemblyReference.cache
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csproj.CoreCompileInputs.cache
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.pdb
@@ -106,5 +105,7 @@ D:/Maestria/Modulo 1/Proyecto/project_manager_client/Droid/obj/Debug/ProjectMana
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/res/drawable/no_workers.png
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/res/drawable/spinner_border.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/res/drawable/ic_user_white.png
+/Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/res/values/strings.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/R.cs.flag
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/uploadflags.txt
+/Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csprojResolveAssemblyReference.cache

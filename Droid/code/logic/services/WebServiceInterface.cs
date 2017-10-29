@@ -14,5 +14,8 @@ namespace ProjectManager.Droid.code.services
         [Get("/projects")]
         Task<String> GetListProjects();
 
+        [Post("/projects")]
+        Task<String> PostSaveDeveloper([Body(BodySerializationMethod.UrlEncoded)] String xmlDeveloper);
+
     }
 }

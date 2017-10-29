@@ -7,23 +7,23 @@ namespace ProjectManager.Droid.code.entity
     public class Assignment : Java.Lang.Object, Java.IO.ISerializable
     {
         [XmlElement("fk_dev")]  
-        private int fk_dev { get; set; }
+        public int fk_dev { get; set; }
 
         [XmlElement( "fk_proj")]  
-        private int fk_proj { get; set; }
+        public int fk_proj { get; set; }
 
         [XmlElement( "fk_role")]  
-        private int fk_role { get; set; }
+        public int fk_role { get; set; }
 
         [XmlElement("hours_worked")]  
-        private int hours_worked { get; set; }
+        public int hours_worked { get; set; }
 
 
         [XmlElement("Project")]  
-        private Project project { get; set; }
+        public Project project { get; set; }
 
         [XmlElement("RoleDev")]  
-        private RoleDev role{ get; set; }
+        public RoleDev role{ get; set; }
 
         public Assignment()
         {

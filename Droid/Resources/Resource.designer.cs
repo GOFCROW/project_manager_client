@@ -106,6 +106,25 @@ namespace ProjectManager.Droid
 			}
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f0e0001
+			public const int exp_array = 2131623937;
+			
+			// aapt resource value: 0x7f0e0000
+			public const int skills_array = 2131623936;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -4285,6 +4304,9 @@ namespace ProjectManager.Droid
 			// aapt resource value: 0x7f090038
 			public const int character_counter_pattern = 2131296312;
 			
+			// aapt resource value: 0x7f09003f
+			public const int exp_prompt = 2131296319;
+			
 			// aapt resource value: 0x7f090000
 			public const int mr_button_content_description = 2131296256;
 			
@@ -4365,6 +4387,9 @@ namespace ProjectManager.Droid
 			
 			// aapt resource value: 0x7f090028
 			public const int search_menu_title = 2131296296;
+			
+			// aapt resource value: 0x7f09003e
+			public const int skills_prompt = 2131296318;
 			
 			// aapt resource value: 0x7f090029
 			public const int status_bar_notification_info_overflow = 2131296297;

@@ -7,10 +7,10 @@ namespace ProjectManager.Droid.code.entity
     public class RoleDev : Java.Lang.Object, Java.IO.ISerializable
     {
         [XmlElement("id")] 
-        private int id { get; set; }
+        public int id { get; set; }
 
         [XmlElement("name")] 
-        private string name { get; set; }
+        public string name { get; set; }
 
         public RoleDev()
         {

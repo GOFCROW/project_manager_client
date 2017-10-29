@@ -7,32 +7,32 @@ namespace ProjectManager.Droid.code.entity
     public class Developer : Java.Lang.Object, Java.IO.ISerializable
     {
         [XmlElement("id")]  
-        private int id { get; set; }
+        public int id { get; set; }
 
         [XmlElement("first_name")]  
-        private string first_name { get; set; }
+        public string first_name { get; set; }
 
         [XmlElement("last_name")]  
-        private string last_name { get; set; }
+        public string last_name { get; set; }
 
         [XmlElement("phone_number")]  
-        private string phone_number { get; set; }
+        public string phone_number { get; set; }
 
         [XmlElement("experience")]  
-        private string experience { get; set; }
+        public string experience { get; set; }
 
         [XmlElement("skills")]  
-        private string skills { get; set; }
+        public string skills { get; set; }
 
         [XmlElement("email")]  
-        private string email { get; set; }
-
+        public string email { get; set; }
+       
         [XmlElement("enabled")]  
-        private Boolean enabled { get; set; }
+        public String enabled { get; set; }
 
         [XmlArray("assignments")]
         [XmlArrayItem("assignments")]
-        private Assignment[] asignments { get; set; }
+        public Assignment[] asignments { get; set; }
 
         public Developer()
         {

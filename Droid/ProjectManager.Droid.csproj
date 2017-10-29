@@ -171,6 +171,7 @@
     <Compile Include="code\controllers\MenuActivity.cs" />
     <Compile Include="code\controllers\ProjectActivity.cs" />
     <Compile Include="code\controllers\DeveloperActivity.cs" />
+    <Compile Include="code\logic\tasks\SaveDeveloperTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -214,6 +215,7 @@
     <AndroidResource Include="Resources\drawable\no_workers.png" />
     <AndroidResource Include="Resources\drawable\spinner_border.xml" />
     <AndroidResource Include="Resources\drawable\ic_user_white.png" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
