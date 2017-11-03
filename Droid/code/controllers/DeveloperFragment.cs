@@ -117,6 +117,9 @@ namespace ProjectManager.Droid.code.controllers
             public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
             {
                 GofBaseAdapter myHolder = holder as GofBaseAdapter;
+                Developer developer = this.listDevelopers[position];
+                myHolder.Get<TextView>(Resource.Id.full_name).Text = developer.first_name + " " + developer.last_name;
+                myHolder.Get<TextView>(Resource.Id.abilities).Text = developer.skills;
             }
 
             public override long GetItemId(int position)
