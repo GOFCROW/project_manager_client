@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Xml.Serialization;
+using ProjectManager.Droid.code.logic.utils;
 
 namespace ProjectManager.Droid.code.utils
 {
@@ -28,9 +30,7 @@ namespace ProjectManager.Droid.code.utils
         public string Serialize<T>(T ObjectToSerialize)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(ObjectToSerialize.GetType());
-
-            using (StringWriter textWriter = new StringWriter())
-            {
+            using (StringWriterWithEncoding textWriter = new StringWriterWithEncoding(Encoding.UTF8)){
                 xmlSerializer.Serialize(textWriter, ObjectToSerialize);
                 return textWriter.ToString();
             }

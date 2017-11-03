@@ -75,6 +75,7 @@ namespace ProjectManager.Droid.code.controllers
         void BtnSaveDeveloper(object sender, EventArgs e)
         {
             Developer developer = new Developer();
+            developer.id = 0;
             developer.first_name = this.et_name.Text;
             developer.last_name = this.et_last_name.Text;
             developer.email = this.et_mail.Text;
@@ -104,6 +105,7 @@ namespace ProjectManager.Droid.code.controllers
 
         public void OnResponse(object result)
         {
+            Toast.MakeText(this, "Desarrollador guardado correctamente", ToastLength.Short).Show();
             Finish();
         }
 

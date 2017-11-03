@@ -41,7 +41,7 @@ namespace ProjectManager.Droid.code.logic.tasks
 
         protected override void OnPostExecute(object result)
         {
-            if (result != null && result.Equals("error"))
+            if (result != null && ((string)result).Contains("ok"))
             {
                 base.completeAsyncTask.OnResponse(result); ;
             }

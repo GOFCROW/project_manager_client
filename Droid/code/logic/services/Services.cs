@@ -32,7 +32,7 @@ namespace ProjectManager.Droid.code.services
 
         public String PostSaveDeveloper(Developer developer)
         {
-            Serializer serializer = new Serializer("projects");
+            Serializer serializer = new Serializer("developers");
             String xmlDeveloper = serializer.Serialize(developer);
             String response = serviceApi.PostSaveDeveloper(xmlDeveloper).Result;
             return response;

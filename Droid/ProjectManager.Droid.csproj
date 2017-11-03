@@ -172,6 +172,7 @@
     <Compile Include="code\controllers\ProjectActivity.cs" />
     <Compile Include="code\controllers\DeveloperActivity.cs" />
     <Compile Include="code\logic\tasks\SaveDeveloperTask.cs" />
+    <Compile Include="code\logic\utils\StringWriterWithEncoding.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

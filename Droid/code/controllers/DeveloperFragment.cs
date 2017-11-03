@@ -50,7 +50,6 @@ namespace ProjectManager.Droid.code.controllers
         }
 
 
-
         private void InitComponents(View view)
         {
             this.rvDevelopers = view.FindViewById<RecyclerView>(Resource.Id.developer_recycler_view);

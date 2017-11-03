@@ -36,6 +36,13 @@ namespace ProjectManager.Droid.Controllers
             base.OnCreate(savedInstanceState);
             base.SetContentView(Resource.Layout.activity_menu);
             InitComponents();
+
+        }
+
+
+        protected override void OnResume()
+        {
+            base.OnResume();
             progressDialog.Show();
             developersBusiness = new DevelopersBusiness(this, this);
             projectBusiness = new ProjectBusiness(this, this);
