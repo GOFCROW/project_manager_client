@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:background="#1565C0">
         <ImageView
-            android:id="@+id/iv_searach"
+            android:id="@+id/iv_search"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentLeft="true"
@@ -54,18 +54,15 @@
         android:padding="8dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#808080"
+        android:visibility="gone"
         android:textSize="20dp" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ListView
-            android:id="@+id/lv_workers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:divider="#808080"
-            android:dividerHeight="1dp"
-            android:visibility="visible" />
-    </RelativeLayout>
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/developer_recycler_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="64dp"
+      android:clipToPadding="false"
+      android:padding="8dp"
+      android:scrollbars="vertical"
+      android:visibility="gone" />
 </LinearLayout>

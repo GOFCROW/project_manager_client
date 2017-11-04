@@ -37,5 +37,13 @@ namespace ProjectManager.Droid.code.services
             String response = serviceApi.PostSaveDeveloper(xmlDeveloper).Result;
             return response;
         }
+
+        public String PostSaveProject(Project project)
+        {
+            Serializer serializer = new Serializer("projects");
+            String xmlDeveloper = serializer.Serialize(project);
+            String response = serviceApi.PostSaveDeveloper(xmlDeveloper).Result;
+            return response;
+        }
     }
 }

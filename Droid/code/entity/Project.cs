@@ -17,7 +17,7 @@ namespace ProjectManager.Droid.code.entity
         public string description { get; set; }
 
         [XmlElement("estimated_hours")]  
-        public int estimated_hours { get; set; }
+        public string estimated_hours { get; set; }
 
         [XmlElement("enabled")]  
         public String enabled { get; set; }

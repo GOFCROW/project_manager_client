@@ -33,7 +33,7 @@
             android:textColor="#808080"
             android:textSize="20dp" />
         <EditText
-            android:id="@+id/et_lenght"
+            android:id="@+id/et_description"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_below="@+id/et_title"
@@ -46,6 +46,7 @@
             android:maxLength="100"
             android:maxLines="2"
             android:padding="8dp"
+            android:textColorHint="#808080"
             android:textColor="#808080"
             android:textSize="20dp" />
         <LinearLayout
@@ -99,6 +100,7 @@
                 android:textColor="#808080"
                 android:textSize="24sp" />
             <ImageView
+                android:id="@+id/iv_add_dev"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -119,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ly_add">
             <LinearLayout
-                android:id="@+id/ly_workers"
+                android:id="@+id/ly_developers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -134,8 +136,7 @@
             android:layout_below="@id/iv_no_team"
             android:layout_margin="16dp"
             android:background="@drawable/button_border"
-            android:elevation="10dp"
-            android:onClick="OnClickCreateProject"
+            android:elevation="10dp"           
             android:text="CREAR"
             android:textColor="#FFFFFF"
             android:textSize="18dp" />

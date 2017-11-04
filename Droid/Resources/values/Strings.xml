@@ -22,7 +22,23 @@
         <item>6</item>
         <item>7</item>
     </string-array>
-
+  <string name="number_prompt">Escoja la duracion del proyecto</string>
+  <string-array name="number_array">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+  </string-array>
+  <string name="type_prompt">Escoja la duracion del proyecto</string>
+  <string-array name="type_array">
+    <item>Dias</item>
+    <item>Semanas</item>
+    <item>Mes</item>
+    <item>Anho</item>
+  </string-array>
 	
 </resources>
 

@@ -19,8 +19,8 @@ namespace ProjectManager.Droid.code.entity
         public int hours_worked { get; set; }
 
 
-        [XmlElement("Project")]  
-        public Project project { get; set; }
+        [XmlElement("Developer")]  
+        public Developer developer { get; set; }
 
         [XmlElement("RoleDev")]  
         public RoleDev role{ get; set; }

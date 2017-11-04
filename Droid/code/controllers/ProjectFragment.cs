@@ -114,8 +114,8 @@ namespace ProjectManager.Droid.code.controllers
                 {
                     GofBaseAdapter myHolder = holder as GofBaseAdapter;
                     Project project = this.listProjects[position];
-                    myHolder.Get<TextView>(Resource.Id.title).Text = project.name;
-                    myHolder.Get<TextView>(Resource.Id.description).Text = project.description;
+                    //myHolder.Get<TextView>(Resource.Id.title).Text = project.name;
+                    //myHolder.Get<TextView>(Resource.Id.description).Text = project.description;
                 }
 
                 public override long GetItemId(int position)
