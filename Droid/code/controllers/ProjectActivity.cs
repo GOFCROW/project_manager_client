@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +11,13 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using ProjectManager.Droid.code.entity;
+using ProjectManager.Droid.code.logic.tasks;
+using ProjectManager.Droid.code.logic.listeners;
 
 namespace ProjectManager.Droid.code.controllers
 {
     [Activity(Label = "ProjectActivity", Theme = "@style/MyTheme", Icon = "@drawable/icon")]
-    public class ProjectActivity : AppCompatActivity,DeveloperDialog.OnDeveloperListener
+    public class ProjectActivity : AppCompatActivity, DeveloperDialog.OnDeveloperListener, CompleteAsyncTask
     {
         private EditText et_title;
         private EditText et_description;
@@ -62,7 +63,7 @@ namespace ProjectManager.Droid.code.controllers
             this.lstAssignments = new List<Assignment>();
             this.lstDevelopers = new List<Developer>();
 
-            
+
         }
 
         private void InitSpinners()
@@ -86,13 +87,11 @@ namespace ProjectManager.Droid.code.controllers
 
         private void BtnAddDeveloper(object sender, EventArgs e)
         {
-            Project project = new Project();
-            project.id = 0;
-            project.name = this.et_title.Text;
-            project.description = this.et_description.Text;
-            project.estimated_hours = textNumber + " " + textType;
-                
+            DeveloperDialog developerDialog = new DeveloperDialog(this, this);
+            developerDialog.Show();
+
         }
+
 
         private void BtnSaveProject(object sender, EventArgs e)
         {
@@ -101,6 +100,10 @@ namespace ProjectManager.Droid.code.controllers
             project.name = this.et_title.Text;
             project.description = this.et_description.Text;
             project.estimated_hours = textNumber + " " + textType;
+            //prepare assignemtes
+            project.assignment = lstAssignments;
+            SaveProjectTask saveProjectTask = new SaveProjectTask(this, this, project);
+            saveProjectTask.Execute();
         }
 
 
@@ -116,14 +119,33 @@ namespace ProjectManager.Droid.code.controllers
             textType = (string)spinner.GetItemAtPosition(e.Position);
         }
 
-        public void OnItemSelected(Developer dev)
+        public void OnDeveloperSelected(Developer dev)
         {
-            throw new NotImplementedException();
+            Assignment assignment = new Assignment();
+            assignment.developer = dev;
+            assignment.fk_dev = dev.id;
+            assignment.fk_proj = 0;
+            assignment.fk_role = 0;
+            assignment.hours_worked = 10;
+            assignment.role = null;
+            lstAssignments.Add(assignment);
         }
 
         public void OnDismissed(Exception e)
         {
+            //canceled
             throw new NotImplementedException();
+        }
+
+        public void OnResponse(object result)
+        {
+            Toast.MakeText(this, "Proyecto guardado correctamente", ToastLength.Short).Show();
+            Finish();
+        }
+
+        public void OnError(string message)
+        {
+            Toast.MakeText(this, "Error al guardar Proyecto", ToastLength.Short).Show();
         }
     }
 }

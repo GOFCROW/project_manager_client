@@ -20,7 +20,7 @@ public class ProjectFragment_ProjectRecyclerViewAdapter
 	}
 
 
-	public ProjectFragment_ProjectRecyclerViewAdapter () throws java.lang.Throwable
+	public ProjectFragment_ProjectRecyclerViewAdapter ()
 	{
 		super ();
 		if (getClass () == ProjectFragment_ProjectRecyclerViewAdapter.class)

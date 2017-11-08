@@ -24,7 +24,7 @@ namespace ProjectManager.Droid.code.entity
 
         [XmlArray("assignments")]
         [XmlArrayItem("assignments")]
-        public Assignment[] assignment { get; set; }
+        public List<Assignment> assignment { get; set; }
 
 
     }

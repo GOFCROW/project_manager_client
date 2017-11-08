@@ -16,7 +16,7 @@ public class Assignment
 	}
 
 
-	public Assignment () throws java.lang.Throwable
+	public Assignment ()
 	{
 		super ();
 		if (getClass () == Assignment.class)

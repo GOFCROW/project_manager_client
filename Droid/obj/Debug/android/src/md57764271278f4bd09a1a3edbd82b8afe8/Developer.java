@@ -16,7 +16,7 @@ public class Developer
 	}
 
 
-	public Developer () throws java.lang.Throwable
+	public Developer ()
 	{
 		super ();
 		if (getClass () == Developer.class)

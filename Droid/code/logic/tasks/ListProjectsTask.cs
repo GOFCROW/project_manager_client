@@ -10,7 +10,7 @@ namespace ProjectManager.Droid.code.logic.tasks
 {
     public class ListProjectsTask : AsyncTaskGOF
     {
-        public ListProjectsTask(Context context, CompleteAsyncTask completeAsyncTask) : base(context,completeAsyncTask)
+        public ListProjectsTask(Context context, CompleteAsyncTask completeAsyncTask) : base(context, completeAsyncTask)
         {
 
         }

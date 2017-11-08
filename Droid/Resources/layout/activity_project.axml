@@ -136,7 +136,7 @@
             android:layout_below="@id/iv_no_team"
             android:layout_margin="16dp"
             android:background="@drawable/button_border"
-            android:elevation="10dp"           
+            android:elevation="10dp"
             android:text="CREAR"
             android:textColor="#FFFFFF"
             android:textSize="18dp" />

@@ -18,7 +18,7 @@ public class SaveDeveloperTask
 	}
 
 
-	public SaveDeveloperTask () throws java.lang.Throwable
+	public SaveDeveloperTask ()
 	{
 		super ();
 		if (getClass () == SaveDeveloperTask.class)

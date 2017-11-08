@@ -15,7 +15,7 @@ public abstract class AsyncTaskGOF
 	}
 
 
-	public AsyncTaskGOF () throws java.lang.Throwable
+	public AsyncTaskGOF ()
 	{
 		super ();
 		if (getClass () == AsyncTaskGOF.class)

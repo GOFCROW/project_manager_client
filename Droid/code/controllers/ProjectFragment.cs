@@ -56,11 +56,29 @@ namespace ProjectManager.Droid.code.controllers
                 this.rvProjects = view.FindViewById<RecyclerView>(Resource.Id.project_recycler_view);
                 this.ivNoProjects = view.FindViewById<ImageView>(Resource.Id.iv_no_projects);
                 this.btn_add_project = view.FindViewById<FloatingActionButton>(Resource.Id.btn_add_project);
-                this.btn_add_project.Click += (sender, e) => {
-                    StartActivity(new Intent(Context,typeof(ProjectActivity)));
-                };
+           
                 Java.Util.ArrayList arrayListProjects = (Java.Util.ArrayList)
                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_PROJECTS);
+
+                object obj = ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
+                
+
+                Java.Util.ArrayList arrayListDevelopers = (Java.Util.ArrayList)
+                ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
+                List<Developer> listDevelopers = new List<Developer>();
+                for (int i = 0; i < arrayListDevelopers.Size(); i++)
+                {
+                    listDevelopers.Add((ProjectManager.Droid.code.entity.Developer)arrayListDevelopers.Get(i));
+                }
+                obj = (object)listDevelopers;
+                arrayListDevelopers = new Java.Util.ArrayList((List<Developer>)obj);
+
+                this.btn_add_project.Click += (sender, e) => {
+                Intent intent = new Intent(Context, typeof(ProjectActivity));
+                intent.PutExtra(MenuActivity.KEY_EXTRA_DEVELOPERS, arrayListDevelopers);
+                StartActivity(intent);
+                };
+
                 if(arrayListProjects != null && !arrayListProjects.IsEmpty)
                 {
                     this.ivNoProjects.Visibility = ViewStates.Gone;

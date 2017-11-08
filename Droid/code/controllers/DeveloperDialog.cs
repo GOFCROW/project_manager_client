@@ -15,32 +15,38 @@ using ProjectManager.Droid.Controllers;
 
 namespace ProjectManager.Droid.code.controllers
 {
-    class DeveloperDialog : DialogFragment
+    class DeveloperDialog : Dialog
     {
         private ImageButton iv_cancel;
         private List<Developer> listDevelopers;
         private RecyclerView rv_developers;
 
 
-        private OnDeveloperListener  onDeveloperListener;
+        public OnDeveloperListener onDeveloperListener;
         private Context context;
 
         private readonly int NUM_COLUMNS = 1;
 
-
-        public static DeveloperDialog NewInstace(Bundle bundle)
+        public DeveloperDialog(Context context, OnDeveloperListener onDeveloperListener) : base(context)
         {
-            var fragment = new DeveloperDialog();
-            fragment.Arguments = bundle;
-            return fragment;
+            this.context = context;
+            this.onDeveloperListener = onDeveloperListener;
         }
 
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.dialog_developer, container, false);
-            this.iv_cancel = view.FindViewById<ImageButton>(Resource.Id.iv_cancel);
-            this.rv_developers = view.FindViewById<RecyclerView>(Resource.Id.developer_recycler_view);
+            base.OnCreate(savedInstanceState);
+            RequestWindowFeature((int)WindowFeatures.NoTitle);
+            SetContentView(Resource.Layout.dialog_developer);
+            initComponents();
+        }
+
+        private void initComponents()
+        {
+
+            this.iv_cancel = FindViewById<ImageButton>(Resource.Id.iv_cancel);
+            this.rv_developers = FindViewById<RecyclerView>(Resource.Id.developer_recycler_view);
             Java.Util.ArrayList arrayListDevelopers = (Java.Util.ArrayList)
                  ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
             if (arrayListDevelopers != null && !arrayListDevelopers.IsEmpty)
@@ -49,15 +55,17 @@ namespace ProjectManager.Droid.code.controllers
                 this.listDevelopers = ConvertJavaListToCSharpList(arrayListDevelopers);
                 InitRecyclerView(this.listDevelopers);
             }
-            
-            return view;
+
+
+
         }
-      
+
+
 
         private void InitRecyclerView(List<Developer> listDevelopers)
         {
             DeveloperRecyclerViewAdapter projectRecyclerViewAdapter =
-                 new DeveloperRecyclerViewAdapter(Resource.Layout.item_dialog, listDevelopers);
+                 new DeveloperRecyclerViewAdapter(Resource.Layout.item_dialog, listDevelopers, onDeveloperListener, rv_developers);
 
             GridLayoutManager gridLayoutManager = new GridLayoutManager(Context, NUM_COLUMNS);
             this.rv_developers.SetLayoutManager(gridLayoutManager);
@@ -79,11 +87,16 @@ namespace ProjectManager.Droid.code.controllers
         {
             private readonly int itemLayout;
             private readonly List<Developer> listDevelopers;
+            private OnDeveloperListener onDeveloperListener;
+            private RecyclerView recyclerView;
 
-            public DeveloperRecyclerViewAdapter(int itemLayout, List<Developer> listDevelopers)
+            public DeveloperRecyclerViewAdapter(int itemLayout, List<Developer> listDevelopers, OnDeveloperListener onDeveloperListener, RecyclerView recyclerView)
             {
                 this.itemLayout = itemLayout;
                 this.listDevelopers = listDevelopers;
+                this.onDeveloperListener = onDeveloperListener;
+                this.recyclerView = recyclerView;
+
             }
 
             public override int ItemCount => listDevelopers.Count();
@@ -100,6 +113,17 @@ namespace ProjectManager.Droid.code.controllers
                 Developer developer = this.listDevelopers[position];
                 myHolder.Get<TextView>(Resource.Id.name).Text = developer.first_name + " " + developer.last_name;
                 myHolder.Get<TextView>(Resource.Id.ability).Text = developer.skills;
+                myHolder.ItemView.Click += OnDeveloperSelected;
+
+
+
+            }
+
+            void OnDeveloperSelected(object sender, EventArgs e)
+            {
+                int position = recyclerView.GetChildAdapterPosition((View)sender);
+                Developer dev = listDevelopers.ElementAt(position);
+                onDeveloperListener.OnDeveloperSelected(dev);
             }
 
             public override long GetItemId(int position)
@@ -116,7 +140,7 @@ namespace ProjectManager.Droid.code.controllers
 
         public interface OnDeveloperListener
         {
-            void OnItemSelected(Developer dev);
+            void OnDeveloperSelected(Developer dev);
 
             void OnDismissed(Exception e);
         }

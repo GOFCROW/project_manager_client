@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -17,7 +18,8 @@ using ProjectManager.Droid.code.logic.tasks;
 
 namespace ProjectManager.Droid.code.controllers
 {
-    [Activity(Label = "DeveloperActivity", Theme = "@style/MyTheme", Icon = "@drawable/icon")]
+    [Activity(Label = "DeveloperActivity", Theme = "@style/MyTheme", Icon = "@drawable/icon",
+              ScreenOrientation = ScreenOrientation.Portrait)]
     public class DeveloperActivity : AppCompatActivity, CompleteAsyncTask
     {
         EditText et_name;

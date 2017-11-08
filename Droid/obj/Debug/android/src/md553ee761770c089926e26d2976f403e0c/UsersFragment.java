@@ -17,7 +17,7 @@ public class UsersFragment
 	}
 
 
-	public UsersFragment () throws java.lang.Throwable
+	public UsersFragment ()
 	{
 		super ();
 		if (getClass () == UsersFragment.class)

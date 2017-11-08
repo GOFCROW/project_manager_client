@@ -18,7 +18,7 @@ public class ListDevelopersTask
 	}
 
 
-	public ListDevelopersTask () throws java.lang.Throwable
+	public ListDevelopersTask ()
 	{
 		super ();
 		if (getClass () == ListDevelopersTask.class)

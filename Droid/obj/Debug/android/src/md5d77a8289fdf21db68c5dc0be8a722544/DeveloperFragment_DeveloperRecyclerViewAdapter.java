@@ -20,7 +20,7 @@ public class DeveloperFragment_DeveloperRecyclerViewAdapter
 	}
 
 
-	public DeveloperFragment_DeveloperRecyclerViewAdapter () throws java.lang.Throwable
+	public DeveloperFragment_DeveloperRecyclerViewAdapter ()
 	{
 		super ();
 		if (getClass () == DeveloperFragment_DeveloperRecyclerViewAdapter.class)

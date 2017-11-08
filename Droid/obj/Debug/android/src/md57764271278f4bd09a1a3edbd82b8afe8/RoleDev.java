@@ -16,7 +16,7 @@ public class RoleDev
 	}
 
 
-	public RoleDev () throws java.lang.Throwable
+	public RoleDev ()
 	{
 		super ();
 		if (getClass () == RoleDev.class)

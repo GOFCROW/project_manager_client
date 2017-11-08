@@ -16,7 +16,7 @@ public class ProjectActivity
 	}
 
 
-	public ProjectActivity () throws java.lang.Throwable
+	public ProjectActivity ()
 	{
 		super ();
 		if (getClass () == ProjectActivity.class)

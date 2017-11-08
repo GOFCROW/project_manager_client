@@ -3,6 +3,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -17,7 +18,8 @@ using ProjectManager.Droid.code.logic.listeners;
 
 namespace ProjectManager.Droid.Controllers
 {
-    [Activity(Label = "MenuActivity", MainLauncher = true, Theme = "@style/MyTheme", Icon = "@drawable/icon")]
+    [Activity(Label = "MenuActivity", MainLauncher = true, Theme = "@style/MyTheme",
+              Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MenuActivity : AppCompatActivity, NotifyController
     {
         private DevelopersBusiness developersBusiness;
@@ -29,6 +31,7 @@ namespace ProjectManager.Droid.Controllers
         private TabLayout tlPrincipal;
 
         public static readonly string KEY_EXTRA_DEVELOPERS = "KEY_EXTRA_DEVELOPERS";
+        public static readonly string KEY_EXTRA_DEVELOPERS_OBJECT = "KEY_EXTRA_DEVELOPERS_OBJECT";
         public static readonly string KEY_EXTRA_PROJECTS = "KEY_EXTRA_PROJECTS";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -81,7 +84,6 @@ namespace ProjectManager.Droid.Controllers
         {
             if (type.Equals(DevelopersBusiness.NOTIFY_KEY))
             {
-                Java.Util.ArrayList test = new Java.Util.ArrayList((List<Developer>)obj);
                 this.Intent.PutExtra(KEY_EXTRA_DEVELOPERS, new Java.Util.ArrayList((List<Developer>)obj));
                 projectBusiness.GetListProjects();
             }

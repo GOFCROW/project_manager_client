@@ -16,7 +16,7 @@ public class DeveloperFragment
 	}
 
 
-	public DeveloperFragment () throws java.lang.Throwable
+	public DeveloperFragment ()
 	{
 		super ();
 		if (getClass () == DeveloperFragment.class)

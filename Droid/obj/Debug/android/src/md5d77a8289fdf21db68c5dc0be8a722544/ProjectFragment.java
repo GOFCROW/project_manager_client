@@ -16,7 +16,7 @@ public class ProjectFragment
 	}
 
 
-	public ProjectFragment () throws java.lang.Throwable
+	public ProjectFragment ()
 	{
 		super ();
 		if (getClass () == ProjectFragment.class)

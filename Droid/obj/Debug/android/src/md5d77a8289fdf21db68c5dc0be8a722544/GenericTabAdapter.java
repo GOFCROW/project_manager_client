@@ -18,7 +18,7 @@ public class GenericTabAdapter
 	}
 
 
-	public GenericTabAdapter (android.support.v4.app.FragmentManager p0) throws java.lang.Throwable
+	public GenericTabAdapter (android.support.v4.app.FragmentManager p0)
 	{
 		super (p0);
 		if (getClass () == GenericTabAdapter.class)

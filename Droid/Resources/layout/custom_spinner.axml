@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="5dp"
         android:background="@android:color/transparent"
-        android:backgroundTint="#ECEFF1"
+        android:backgroundTint="#808080"
         android:gravity="center"
         android:spinnerMode="dropdown" />
     <ImageView

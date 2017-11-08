@@ -17,7 +17,7 @@ public class MenuActivity
 	}
 
 
-	public MenuActivity () throws java.lang.Throwable
+	public MenuActivity ()
 	{
 		super ();
 		if (getClass () == MenuActivity.class)
