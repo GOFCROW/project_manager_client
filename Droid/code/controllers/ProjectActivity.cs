@@ -13,11 +13,13 @@ using Android.Widget;
 using ProjectManager.Droid.code.entity;
 using ProjectManager.Droid.code.logic.tasks;
 using ProjectManager.Droid.code.logic.listeners;
+using ProjectManager.Droid.Controllers;
+using Newtonsoft.Json;
 
 namespace ProjectManager.Droid.code.controllers
 {
     [Activity(Label = "ProjectActivity", Theme = "@style/MyTheme", Icon = "@drawable/icon")]
-    public class ProjectActivity : AppCompatActivity, DeveloperDialog.OnDeveloperListener, CompleteAsyncTask
+    public class ProjectActivity : GofCompatActivity, DeveloperDialog.OnDeveloperListener, CompleteAsyncTask
     {
         private EditText et_title;
         private EditText et_description;
@@ -41,6 +43,7 @@ namespace ProjectManager.Droid.code.controllers
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_project);
+            InitToolbarComponents(Resource.Id.toolbar, "Gestión de proyectos", true);
             InitComponents();
             InitSpinners();
         }
@@ -87,7 +90,10 @@ namespace ProjectManager.Droid.code.controllers
 
         private void BtnAddDeveloper(object sender, EventArgs e)
         {
-            DeveloperDialog developerDialog = new DeveloperDialog(this, this);
+
+            string developersJson = Intent.Extras.GetString(MenuActivity.KEY_EXTRA_DEVELOPERS_OBJECT);
+            List<Developer> listDevelopers = JsonConvert.DeserializeObject<List<Developer>>(developersJson);
+            DeveloperDialog developerDialog = new DeveloperDialog(this, this,listDevelopers);
             developerDialog.Show();
 
         }

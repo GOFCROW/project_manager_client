@@ -20,7 +20,7 @@ namespace ProjectManager.Droid.code.controllers
 {
     [Activity(Label = "DeveloperActivity", Theme = "@style/MyTheme", Icon = "@drawable/icon",
               ScreenOrientation = ScreenOrientation.Portrait)]
-    public class DeveloperActivity : AppCompatActivity, CompleteAsyncTask
+    public class DeveloperActivity : GofCompatActivity, CompleteAsyncTask
     {
         EditText et_name;
         EditText et_last_name;
@@ -38,9 +38,12 @@ namespace ProjectManager.Droid.code.controllers
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_developer);
+            InitToolbarComponents(Resource.Id.toolbar, "Gestión de developers", true);
             InitComponents();
             InitSpinners();
         }
+
+
 
         private void InitComponents()
         {

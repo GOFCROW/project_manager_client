@@ -12,6 +12,7 @@ using Android.Widget;
 using ProjectManager.Droid.code.entity;
 using Android.Support.V7.Widget;
 using ProjectManager.Droid.Controllers;
+using Newtonsoft.Json;
 
 namespace ProjectManager.Droid.code.controllers
 {
@@ -27,10 +28,11 @@ namespace ProjectManager.Droid.code.controllers
 
         private readonly int NUM_COLUMNS = 1;
 
-        public DeveloperDialog(Context context, OnDeveloperListener onDeveloperListener) : base(context)
+        public DeveloperDialog(Context context, OnDeveloperListener onDeveloperListener,List<Developer> listDevelopers ) : base(context)
         {
             this.context = context;
             this.onDeveloperListener = onDeveloperListener;
+            this.listDevelopers = listDevelopers;
         }
 
 
@@ -47,12 +49,10 @@ namespace ProjectManager.Droid.code.controllers
 
             this.iv_cancel = FindViewById<ImageButton>(Resource.Id.iv_cancel);
             this.rv_developers = FindViewById<RecyclerView>(Resource.Id.developer_recycler_view);
-            Java.Util.ArrayList arrayListDevelopers = (Java.Util.ArrayList)
-                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
-            if (arrayListDevelopers != null && !arrayListDevelopers.IsEmpty)
+
+            if (listDevelopers != null && listDevelopers.Count != 0)
             {
-                this.rv_developers.Visibility = ViewStates.Visible;
-                this.listDevelopers = ConvertJavaListToCSharpList(arrayListDevelopers);
+                this.rv_developers.Visibility = ViewStates.Visible;          
                 InitRecyclerView(this.listDevelopers);
             }
 

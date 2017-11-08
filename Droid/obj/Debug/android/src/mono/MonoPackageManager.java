@@ -108,6 +108,7 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "ProjectManager.Droid.dll" comes first in this list. */
 		"ProjectManager.Droid.dll",
 		"FormsViewGroup.dll",
+		"GoogleGson.dll",
 		"Microsoft.AspNetCore.WebUtilities.dll",
 		"Microsoft.Extensions.Primitives.dll",
 		"Microsoft.Net.Http.Headers.dll",

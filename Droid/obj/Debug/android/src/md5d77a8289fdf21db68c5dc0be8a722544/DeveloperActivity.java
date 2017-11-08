@@ -2,7 +2,7 @@ package md5d77a8289fdf21db68c5dc0be8a722544;
 
 
 public class DeveloperActivity
-	extends android.support.v7.app.AppCompatActivity
+	extends md5d77a8289fdf21db68c5dc0be8a722544.GofCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {

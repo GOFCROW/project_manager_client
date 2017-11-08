@@ -129,6 +129,7 @@ D:/Alejandro/Documents/Maestria/Modulo 1/project_manager_client/Droid/obj/Debug/
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/ProjectManager.Droid.pdb
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/com.gofcrow.ProjectManager.apk
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/com.gofcrow.ProjectManager-Signed.apk
+/Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/GoogleGson.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Newtonsoft.Json.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Refit.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Xamarin.Android.Arch.Core.Common.dll
@@ -150,6 +151,7 @@ D:/Alejandro/Documents/Maestria/Modulo 1/project_manager_client/Droid/obj/Debug/
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Xamarin.Android.Support.Vector.Drawable.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Newtonsoft.Json.xml
 /Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Refit.pdb
+/Users/alcidesleanos/Projects/ProjectManager/Droid/bin/Debug/Refit.dll.mdb
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csprojResolveAssemblyReference.cache
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.csproj.CoreCompileInputs.cache
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/ProjectManager.Droid.dll

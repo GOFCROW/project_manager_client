@@ -166,6 +166,9 @@
     <Reference Include="Refit">
       <HintPath>..\packages\refit.3.0.1\lib\netstandard1.3\Refit.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleGson">
+      <HintPath>..\packages\GoogleGson.2.8.1\lib\MonoAndroid\GoogleGson.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -203,6 +206,7 @@
     <Compile Include="code\logic\tasks\SaveDeveloperTask.cs" />
     <Compile Include="code\logic\utils\StringWriterWithEncoding.cs" />
     <Compile Include="code\controllers\DeveloperDialog.cs" />
+    <Compile Include="code\controllers\GofCompatActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

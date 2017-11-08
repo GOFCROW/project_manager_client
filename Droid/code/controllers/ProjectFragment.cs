@@ -13,6 +13,8 @@ using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using GoogleGson;
+using Newtonsoft.Json;
 using ProjectManager.Droid.code.entity;
 using ProjectManager.Droid.Controllers;
 
@@ -60,22 +62,16 @@ namespace ProjectManager.Droid.code.controllers
                 Java.Util.ArrayList arrayListProjects = (Java.Util.ArrayList)
                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_PROJECTS);
 
-                object obj = ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
-                
-
                 Java.Util.ArrayList arrayListDevelopers = (Java.Util.ArrayList)
                 ((Activity)this.Context).Intent.Extras.GetSerializable(MenuActivity.KEY_EXTRA_DEVELOPERS);
-                List<Developer> listDevelopers = new List<Developer>();
-                for (int i = 0; i < arrayListDevelopers.Size(); i++)
-                {
-                    listDevelopers.Add((ProjectManager.Droid.code.entity.Developer)arrayListDevelopers.Get(i));
-                }
-                obj = (object)listDevelopers;
-                arrayListDevelopers = new Java.Util.ArrayList((List<Developer>)obj);
+            
+                List<Developer> listDevelopers = ConvertJavaListToCSharpList2(arrayListDevelopers);
+
+                String developerJson = JsonConvert.SerializeObject(listDevelopers);
 
                 this.btn_add_project.Click += (sender, e) => {
                 Intent intent = new Intent(Context, typeof(ProjectActivity));
-                intent.PutExtra(MenuActivity.KEY_EXTRA_DEVELOPERS, arrayListDevelopers);
+                intent.PutExtra(MenuActivity.KEY_EXTRA_DEVELOPERS_OBJECT, developerJson);
                 StartActivity(intent);
                 };
 
@@ -97,6 +93,17 @@ namespace ProjectManager.Droid.code.controllers
                 lstProjects.Add((ProjectManager.Droid.code.entity.Project)arrayListProjects.Get(i));
             }
             return lstProjects;
+        }
+
+
+        private List<Developer> ConvertJavaListToCSharpList2(Java.Util.ArrayList arrayListDevelopers)
+        {
+            List<Developer> lstDevelopers = new List<Developer>();
+            for (int i = 0; i < arrayListDevelopers.Size(); i++)
+            {
+                lstDevelopers.Add((ProjectManager.Droid.code.entity.Developer)arrayListDevelopers.Get(i));
+            }
+            return lstDevelopers;
         }
 
 
@@ -132,8 +139,8 @@ namespace ProjectManager.Droid.code.controllers
                 {
                     GofBaseAdapter myHolder = holder as GofBaseAdapter;
                     Project project = this.listProjects[position];
-                    //myHolder.Get<TextView>(Resource.Id.title).Text = project.name;
-                    //myHolder.Get<TextView>(Resource.Id.description).Text = project.description;
+                    myHolder.Get<TextView>(Resource.Id.title).Text = project.name;
+                    myHolder.Get<TextView>(Resource.Id.description).Text = project.description;
                 }
 
                 public override long GetItemId(int position)

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace ProjectManager.Droid.code.entity
 {
+    [JsonObject(MemberSerialization.OptOut)]
     [Serializable]
-    public class Developer : Java.Lang.Object, Java.IO.ISerializable
+    public class Developer : Java.Lang.Object
     {
         [XmlElement("id")]  
         public int id { get; set; }
@@ -36,6 +38,22 @@ namespace ProjectManager.Droid.code.entity
 
         public Developer()
         {
+            
+        }
+
+
+        public Developer(int id,string first_name,string last_name,string phone_number,
+                         string experience,string skills, string email,String enabled,Assignment[] asignments )
+        {
+            this.id = id;
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.phone_number = phone_number;
+            this.experience = experience;
+            this.skills = skills;
+            this.email = email;
+            this.enabled = enabled;
+            this.asignments = asignments;
         }
     }
 }

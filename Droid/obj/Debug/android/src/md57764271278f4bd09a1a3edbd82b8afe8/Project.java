@@ -4,8 +4,7 @@ package md57764271278f4bd09a1a3edbd82b8afe8;
 public class Project
 	extends java.lang.Object
 	implements
-		mono.android.IGCUserPeer,
-		java.io.Serializable
+		mono.android.IGCUserPeer
 {
 /** @hide */
 	public static final String __md_methods;

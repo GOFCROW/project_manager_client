@@ -20,7 +20,7 @@ namespace ProjectManager.Droid.Controllers
 {
     [Activity(Label = "MenuActivity", MainLauncher = true, Theme = "@style/MyTheme",
               Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
-    public class MenuActivity : AppCompatActivity, NotifyController
+    public class MenuActivity : GofCompatActivity, NotifyController
     {
         private DevelopersBusiness developersBusiness;
         private ProjectBusiness projectBusiness;
@@ -38,6 +38,7 @@ namespace ProjectManager.Droid.Controllers
         {
             base.OnCreate(savedInstanceState);
             base.SetContentView(Resource.Layout.activity_menu);
+            InitToolbarComponents(Resource.Id.toolbar, "Administrador de proyectos", false);
             InitComponents();
 
         }
@@ -99,11 +100,6 @@ namespace ProjectManager.Droid.Controllers
                 Toast.MakeText(this, obj.ToString(), ToastLength.Short).Show();
             }
         }
-
-
-
-
-
 
     }
 }

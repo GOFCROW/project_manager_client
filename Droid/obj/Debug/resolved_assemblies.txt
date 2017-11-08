@@ -1,5 +1,6 @@
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/android/assets/ProjectManager.Droid.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/android/assets/FormsViewGroup.dll
+/Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/android/assets/GoogleGson.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/android/assets/Microsoft.AspNetCore.WebUtilities.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/android/assets/Microsoft.Extensions.Primitives.dll
 /Users/alcidesleanos/Projects/ProjectManager/Droid/obj/Debug/android/assets/Microsoft.Net.Http.Headers.dll
