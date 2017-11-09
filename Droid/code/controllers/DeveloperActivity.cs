@@ -59,26 +59,36 @@ namespace ProjectManager.Droid.code.controllers
             this.btn_developer.Click += BtnSaveDeveloper;
         }
 
+
+
         private void InitSpinners(){
             this.sp_area.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinnerAreaSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
-                this, Resource.Array.skills_array, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            var adapter = ArrayAdapter.CreateFromResource(
+                this, Resource.Array.skills_array, Resource.Layout.custom_spinner_item);
+
+
+            adapter.SetDropDownViewResource(Resource.Layout.custom_spinner_item);
             this.sp_area.Adapter = adapter;
 
 
             this.sp_experience.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinnerExpSelected);
-            var adapter2 = ArrayAdapter.CreateFromResource(
-                this, Resource.Array.exp_array, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            var adapter2 = ArrayAdapter.CreateFromResource(
+                this, Resource.Array.exp_array, Resource.Layout.custom_spinner_item);
+
+            adapter2.SetDropDownViewResource(Resource.Layout.custom_spinner_item);
             this.sp_experience.Adapter = adapter2;
         }
 
 
         void BtnSaveDeveloper(object sender, EventArgs e)
         {
+            if (!ValidateComponents())
+            {
+                Toast.MakeText(this, "Por favor, revise sus campos", ToastLength.Short).Show();
+                return;
+            }
             Developer developer = new Developer();
             developer.id = 0;
             developer.first_name = this.et_name.Text;
@@ -90,6 +100,34 @@ namespace ProjectManager.Droid.code.controllers
 
             SaveDeveloperTask saveDeveloperTask = new SaveDeveloperTask(this,this,developer);
             saveDeveloperTask.Execute();
+        }
+
+        private Boolean ValidateComponents()
+        {
+            if (this.et_name.Text.Equals("") || this.et_name.Text.Count() == 0 || this.et_name.Text.Equals(" "))
+            {
+                this.et_name.Error = "Debe introducir el nombre";
+                return false;
+            }
+
+            if (this.et_last_name.Text.Equals("") || this.et_last_name.Text.Count() == 0 || this.et_last_name.Text.Equals(" "))
+            {
+                this.et_last_name.Error = "Debe introducir el apellido";
+                return false;
+            }
+
+            if (this.et_mail.Text.Equals("") || this.et_mail.Text.Count() == 0 || this.et_mail.Text.Equals(" "))
+            {
+                this.et_mail.Error = "Debe introducir un correo";
+                return false;
+            }
+
+            if (this.et_phone_number.Text.Equals("") || this.et_phone_number.Text.Count() == 0 || this.et_phone_number.Text.Equals(" "))
+            {
+                this.et_phone_number.Error = "Debe introducir un teléfono";
+                return false;
+            }
+            return true;
         }
 
         private void spinnerAreaSelected(object sender, AdapterView.ItemSelectedEventArgs e)

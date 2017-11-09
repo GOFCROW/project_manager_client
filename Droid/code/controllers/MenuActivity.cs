@@ -18,7 +18,7 @@ using ProjectManager.Droid.code.logic.listeners;
 
 namespace ProjectManager.Droid.Controllers
 {
-    [Activity(Label = "MenuActivity", MainLauncher = true, Theme = "@style/MyTheme",
+    [Activity(Label = "ProjectManager", MainLauncher = true, Theme = "@style/MyTheme",
               Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MenuActivity : GofCompatActivity, NotifyController
     {

@@ -19,31 +19,63 @@ namespace ProjectManager.Droid.code.services
         public List<Developer> GetListDevelopers()
         {
             Serializer serializer = new Serializer("developers");
-            String xmlDevelopers = serviceApi.GetListDevelopers().Result;
-            return serializer.Deserialize<List<Developer>>(xmlDevelopers);
+            try
+            {
+                String xmlDevelopers = serviceApi.GetListDevelopers().Result;
+                return serializer.Deserialize<List<Developer>>(xmlDevelopers); 
+            }
+            catch
+            {
+                return null;   
+            }
+           
         }
 
         public List<Project> GetListProjects()
         {
             Serializer serializer = new Serializer("projects");
-            String xmlProjects = serviceApi.GetListProjects().Result;
-            return serializer.Deserialize<List<Project>>(xmlProjects);
+            try
+            {
+                String xmlProjects = serviceApi.GetListProjects().Result;
+                return serializer.Deserialize<List<Project>>(xmlProjects);
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         public String PostSaveDeveloper(Developer developer)
         {
             Serializer serializer = new Serializer("developers");
-            String xmlDeveloper = serializer.Serialize(developer);
-            String response = serviceApi.PostSaveDeveloper(xmlDeveloper).Result;
-            return response;
+            try
+            {   
+                String xmlDeveloper = serializer.Serialize(developer);
+                String response = serviceApi.PostSaveDeveloper(xmlDeveloper).Result;
+                return response;   
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         public String PostSaveProject(Project project)
         {
             Serializer serializer = new Serializer("projects");
-            String xmlDeveloper = serializer.Serialize(project);
-            String response = serviceApi.PostSaveDeveloper(xmlDeveloper).Result;
-            return response;
+            try
+            {
+                String xmlDeveloper = serializer.Serialize(project);
+                String response = serviceApi.PostSaveProject(xmlDeveloper).Result;
+                return response;  
+            }
+            catch
+            {
+                return null;
+            }
+
         }
     }
 }

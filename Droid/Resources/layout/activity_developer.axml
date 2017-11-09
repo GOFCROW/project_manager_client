@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
-            android:background="#1565C0"
+            android:background="#1E88E5"
             android:visibility="visible"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -93,7 +93,9 @@
                 android:layout_weight="1"
                 android:ems="20"
                 android:padding="8dp"
+                android:background="@drawable/edit_border"
                 android:textColor="#808080"
+                android:spinnerMode="dropdown"
                 android:prompt="@string/skills_prompt"
                 android:textSize="20dp" />
             <Spinner
@@ -103,8 +105,10 @@
                 android:layout_below="@+id/et_lenght"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
+                android:spinnerMode="dropdown"
                 android:ems="20"
                 android:padding="8dp"
+                android:background="@drawable/edit_border"
                 android:prompt="@string/exp_prompt"
                 android:textColor="#808080"
                 android:textSize="20dp" />

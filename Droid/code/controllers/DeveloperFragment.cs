@@ -119,6 +119,7 @@ namespace ProjectManager.Droid.code.controllers
                 Developer developer = this.listDevelopers[position];
                 myHolder.Get<TextView>(Resource.Id.full_name).Text = developer.first_name + " " + developer.last_name;
                 myHolder.Get<TextView>(Resource.Id.abilities).Text = developer.skills;
+                myHolder.Get<TextView>(Resource.Id.projects).Text = "Experiencia " + developer.experience ;
             }
 
             public override long GetItemId(int position)

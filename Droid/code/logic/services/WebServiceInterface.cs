@@ -18,5 +18,9 @@ namespace ProjectManager.Droid.code.services
         [Post("/developers/update")]
         Task<String> PostSaveDeveloper([Body(BodySerializationMethod.UrlEncoded)] String xmlDeveloper);
 
+        [Headers("Content-Type: text/plain; charset=utf-8")]
+        [Post("/projects/update")]
+        Task<String> PostSaveProject([Body(BodySerializationMethod.UrlEncoded)] String xmlProject);
+
     }
 }

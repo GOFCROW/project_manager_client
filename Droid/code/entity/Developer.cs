@@ -55,5 +55,14 @@ namespace ProjectManager.Droid.code.entity
             this.enabled = enabled;
             this.asignments = asignments;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (this == obj) return true;
+            if (obj == null || GetType() != obj.GetType()) return false;
+
+            Developer developer = (Developer)obj;
+            return id.Equals(developer.id);
+        }
     }
 }

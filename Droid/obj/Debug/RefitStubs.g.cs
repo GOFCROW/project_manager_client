@@ -62,5 +62,11 @@ namespace ProjectManager.Droid.code.services
             return (Task<String>) methodImpls["PostSaveDeveloper"](Client, arguments);
         }
 
+        public virtual Task<String> PostSaveProject(String xmlProject)
+        {
+            var arguments = new object[] { xmlProject };
+            return (Task<String>) methodImpls["PostSaveProject"](Client, arguments);
+        }
+
     }
 }

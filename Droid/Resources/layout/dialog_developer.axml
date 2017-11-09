@@ -20,10 +20,9 @@
             android:src="@drawable/ic_search" />
         <TextView
             android:id="@+id/tv_customer_search"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/iv_cancel"
-            android:layout_toRightOf="@+id/iv_searach"
+            android:layout_toRightOf="@+id/iv_search"
             android:paddingBottom="16dp"
             android:paddingTop="16dp"
             android:text="Seleccion del equipo"
@@ -40,27 +39,11 @@
             android:background="#1565C0"
             android:src="@drawable/ic_delete_white" />
     </RelativeLayout>
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_margin="8dp"
-        android:background="@drawable/edit_border"
-        android:ems="20"
-        android:hint="Palabras claves..."
-        android:inputType="textAutoCorrect"
-        android:maxLength="30"
-        android:padding="8dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#808080"
-        android:visibility="gone"
-        android:textSize="20dp" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/developer_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
         android:clipToPadding="false"
         android:padding="8dp"
         android:scrollbars="vertical"

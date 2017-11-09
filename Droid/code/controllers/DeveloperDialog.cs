@@ -114,15 +114,14 @@ namespace ProjectManager.Droid.code.controllers
                 myHolder.Get<TextView>(Resource.Id.name).Text = developer.first_name + " " + developer.last_name;
                 myHolder.Get<TextView>(Resource.Id.ability).Text = developer.skills;
                 myHolder.ItemView.Click += OnDeveloperSelected;
-
-
-
+            
             }
 
             void OnDeveloperSelected(object sender, EventArgs e)
             {
                 int position = recyclerView.GetChildAdapterPosition((View)sender);
-                Developer dev = listDevelopers.ElementAt(position);
+                int indexPosition = (listDevelopers.Count - 1) - position;
+                Developer dev = listDevelopers[position];
                 onDeveloperListener.OnDeveloperSelected(dev);
             }
 

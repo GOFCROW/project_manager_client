@@ -141,6 +141,7 @@ namespace ProjectManager.Droid.code.controllers
                     Project project = this.listProjects[position];
                     myHolder.Get<TextView>(Resource.Id.title).Text = project.name;
                     myHolder.Get<TextView>(Resource.Id.description).Text = project.description;
+                    myHolder.Get<TextView>(Resource.Id.participants).Text = "Duracion " + project.estimated_hours + " horas";
                 }
 
                 public override long GetItemId(int position)

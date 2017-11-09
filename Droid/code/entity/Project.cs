@@ -19,13 +19,13 @@ namespace ProjectManager.Droid.code.entity
         public string description { get; set; }
 
         [XmlElement("estimated_hours")]  
-        public string estimated_hours { get; set; }
+        public int estimated_hours { get; set; }
 
         [XmlElement("enabled")]  
-        public String enabled { get; set; }
+        public string enabled { get; set; }
 
         [XmlArray("assignments")]
-        [XmlArrayItem("assignments")]
+        [XmlArrayItem("Assignment")]
         public List<Assignment> assignment { get; set; }
 
 
@@ -34,15 +34,15 @@ namespace ProjectManager.Droid.code.entity
             
         }
 
-        public Project(int id, string name, string description, string estimated_hours, String enabled, List<Assignment> assignment )
-        {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.estimated_hours = estimated_hours;
-            this.enabled = enabled;
-            this.assignment = assignment;
-        }
+        //public Project(int id, string name, string description, string estimated_hours, String enabled, List<Assignment> assignment )
+        //{
+        //    this.id = id;
+        //    this.name = name;
+        //    this.description = description;
+        //    this.estimated_hours = estimated_hours;
+        //    this.enabled = enabled;
+        //    this.assignment = assignment;
+        //}
 
     }
 }
